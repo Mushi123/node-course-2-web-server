@@ -20,9 +20,9 @@ app.use((req,res,next) => {
     }
   });
 })
-app.use((req,res,next) => {
-  res.render('maintenance.hbs');
-})//we just need to concat the name of the folder inside our proj folder where the assets lie
+// app.use((req,res,next) => {
+//   res.render('maintenance.hbs');
+// })//we just need to concat the name of the folder inside our proj folder where the assets lie
 app.use(express.static(__dirname+'/public'))//if you go to /help.html you will get html page
                                             //express.static specifies where our static assets lie like html pages. It takes in
                                             //absolute path from your hard drive so __dirname var holds that path to my project folder
@@ -46,6 +46,10 @@ app.get('/',(req,res)=>{
 });
 app.get('/about',(req,res)=>{
   res.render('about.hbs',{name:'About'})
+})
+
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{name:'Projects'})
 })
 
 app.get('/bad',(req,res,next)=>{
